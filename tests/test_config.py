@@ -1,5 +1,5 @@
-from dmsapi.config import Config
+from dmsapi import config
 
 
 def test_get_entrypoints():
-    assert Config.entrypoints['ROOT'] == 'https://api.dms.istruly.sexy/'
+    assert config.entrypoints['ROOT'] == 'https://api.dms.istruly.sexy/'
