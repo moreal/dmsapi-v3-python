@@ -1,8 +1,6 @@
-from typing import AnyStr, Callable, Any
-
 import requests
 
-
+from typing import AnyStr, Callable, Any
 from dmsapi.core.auth import ApiCallAuth
 
 api_call_auth = ApiCallAuth()
