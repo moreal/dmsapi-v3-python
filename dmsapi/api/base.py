@@ -8,3 +8,9 @@ class BaseAPI:
 
     def __init__(self, _session: DMSAccountSession):
         self._session = _session
+
+    def apply(self):
+        pass
+
+    def get(self):
+        pass
