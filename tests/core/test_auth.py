@@ -6,7 +6,7 @@ from dmsapi.utils.auth import make_user_data
 ROOT_PATH = config.entrypoints['ROOT']
 
 
-def check_user_data_callback(request: Request, context):
+def dms_check_user_data_process(request: Request, context):
     user_agent = request.headers.get('User-Agent', None)
     x_date = request.headers.get('X-Date', None)
     user_data = request.headers.get('User-Data', None)
@@ -20,7 +20,7 @@ def check_user_data_callback(request: Request, context):
 
 
 def test_request_with_auth(requests_mock):
-    requests_mock.get(ROOT_PATH, text=check_user_data_callback)
+    requests_mock.get(ROOT_PATH, text=dms_check_user_data_process)
     resp = requests.get(ROOT_PATH)
 
     assert 418 != resp.status_code
