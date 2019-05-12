@@ -1,6 +1,5 @@
-from dmsapi.core.session import DMSAccountSession
+from dmsapi.api.base import BaseAPI
 
 
-class Meal:
-    def __init__(self, _session: DMSAccountSession):
-        self._session = _session
+class Meal(BaseAPI):
+    pass
