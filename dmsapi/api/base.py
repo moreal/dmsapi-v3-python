@@ -5,8 +5,9 @@ def require_auth(func: Callable[..., Any], *args):
     def wrap():
         self: BaseAPI = args[0]
         session = self.session
-        if session.is_authenticated:
-            func(*args)
+        if not session.is_authenticated:
+            session.authenticate()
+        func(*args)
 
     return wrap
 
