@@ -1,13 +1,18 @@
+from json import JSONDecodeError
 from typing import Callable, Any
 
 
 def require_auth(func: Callable[..., Any], *args):
-    def wrap(*args):
+    def wrap(*args) -> dict:
         self: BaseAPI = args[0]
         session = self.session
         if not session.is_authenticated:
             session.authenticate()
-        return func(*args)
+
+        try:
+            return func(*args)
+        except JSONDecodeError:
+            return {}
 
     return wrap
 

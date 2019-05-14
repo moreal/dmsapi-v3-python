@@ -1,3 +1,5 @@
+from json import JSONDecodeError
+
 from dmsapi import config
 from dmsapi.api.base import BaseAPI, require_auth
 
@@ -5,12 +7,9 @@ from dmsapi.api.base import BaseAPI, require_auth
 class Extension(BaseAPI):
     @require_auth
     def get(self, _time):
-        try:
-            return self.session.get(
-                f"{config.entrypoints['EXTENSION']}/{_time}"
-            ).json()
-        except KeyError:
-            return {}
+        return self.session.get(
+            f"{config.entrypoints['EXTENSION']}/{_time}"
+        ).json()
 
     @require_auth
     def apply(self, _time: int, _class: int, _seat: int) -> bool:
