@@ -1,1 +1,1 @@
-from dmsapi.core.session import DMSAccountSession as DMSSession
+from dmsapi.core.session import DMSSession

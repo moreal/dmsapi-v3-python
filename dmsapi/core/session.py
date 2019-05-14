@@ -10,8 +10,8 @@ from dmsapi.api.stay import Stay
 from dmsapi.core.requests import api_call_auth
 
 
-class DMSAccountSession(Session):
-    def __init__(self, _id, _password):
+class DMSSession(Session):
+    def __init__(self, _id=None, _password=None):
         super().__init__()
 
         self._id = _id

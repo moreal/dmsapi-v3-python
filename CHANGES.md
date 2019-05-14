@@ -6,6 +6,12 @@
   ```python
   from dmsapi import DMSSession
   ```
+- Support to use session without account
+  ```python
+  from dmsapi import DMSSession
+  
+  session = DMSSession()
+  ```
 
 ## Version 0.1.1
 - Refactor config structure
