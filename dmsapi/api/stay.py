@@ -1,4 +1,5 @@
 from enum import IntEnum
+from http import HTTPStatus
 
 from dmsapi import config
 from dmsapi.api.base import BaseAPI, require_auth
@@ -14,9 +15,9 @@ class StayType(IntEnum):
 class Stay(BaseAPI):
     @require_auth
     def get(self) -> StayType:
-        return self.session.get(
+        return StayType(self.session.get(
             config.entrypoints['STAY']
-        ).json()['value']
+        ).json()['value'])
 
     @require_auth
     def apply(self, _value) -> bool:
@@ -25,4 +26,4 @@ class Stay(BaseAPI):
             json={
                 'value': _value
             }
-        ).status_code == 200
+        ).status_code == HTTPStatus.CREATED
