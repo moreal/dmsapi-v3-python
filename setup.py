@@ -1,3 +1,5 @@
+import os
+
 import setuptools
 from setuptools import setup
 
@@ -7,7 +9,7 @@ with open('README.md') as f:
 setup(
     url='https://github.com/dmsapi/python',
     name='dmsapi',
-    version='0.1.2',
+    version=os.environ['TRAVIS_TAG'],
     long_description=readme,
     long_description_content_type='text/markdown',
     description='Simple DSM-DMS API',

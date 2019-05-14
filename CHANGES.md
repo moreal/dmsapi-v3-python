@@ -1,5 +1,9 @@
 # DMS-API changelog
 
+## Version 0.1.3
+
+- Automation pypi version by git tag
+
 ## Version 0.1.2
 
 - Support direct import
