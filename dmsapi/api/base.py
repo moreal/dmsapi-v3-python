@@ -2,12 +2,12 @@ from typing import Callable, Any
 
 
 def require_auth(func: Callable[..., Any], *args):
-    def wrap():
+    def wrap(*args):
         self: BaseAPI = args[0]
         session = self.session
         if not session.is_authenticated:
             session.authenticate()
-        func(*args)
+        return func(*args)
 
     return wrap
 
