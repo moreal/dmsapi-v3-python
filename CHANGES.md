@@ -1,6 +1,6 @@
 # DMS-API changelog
 
-## Unreleased
+## Version 0.1.2
 
 - Support direct import
   ```python
