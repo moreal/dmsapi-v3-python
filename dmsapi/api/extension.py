@@ -4,6 +4,25 @@ from dmsapi.api.base import BaseAPI, require_auth
 
 class Extension(BaseAPI):
     @require_auth
-    def get(self):
-        self.session.get(config.entrypoints['EXTENSION'])
+    def get(self, _time):
+        try:
+            return self.session.get(
+                f"{config.entrypoints['EXTENSION']}/{_time}"
+            ).json()
+        except KeyError:
+            return {}
 
+    @require_auth
+    def apply(self, _time: int, _class: int, _seat: int) -> bool:
+        return self.session.post(
+            f"{config.entrypoints['EXTENSION']}/{_time}",
+            json={
+                'classNum': _class,
+                'seatNum': _seat
+            }
+        ).status_code == 200
+
+    def map(self, _time: int, _room: int):
+        return self.session.get(
+            f"{config.entrypoints['EXTENSION']}/map/{_time}/{_room}"
+        ).json()
