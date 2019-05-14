@@ -1,13 +1,11 @@
-from typing import Dict, AnyStr
-from configparser import ConfigParser
-
-
-class Config:
-    def __init__(self, path):
-        self._config = ConfigParser()
-        self._config.read(path)
-
-    @property
-    def entrypoints(self) -> Dict[AnyStr, AnyStr]:
-        return self._config['ENTRYPOINTS']
-
+entrypoints = {
+    "ROOT": "https://api.dms.istruly.sexy",
+    "AUTH": "https://api.dms.istruly.sexy/account/auth",
+    "EXTENSION": "https://api.dms.istruly.sexy/apply/extension",
+    "GOINGOUT": "https://api.dms.istruly.sexy/apply/goingout",
+    "STAY": "https://api.dms.istruly.sexy/apply/stay",
+    "MUSIC": "https://api.dms.istruly.sexy/apply/music",
+    "POINT": "https://api.dms.istruly.sexy/info/point",
+    "BASIC": "https://api.dms.istruly.sexy/info/basic",
+    "MEAL": "https://api.dms.istruly.sexy/meal",
+}
