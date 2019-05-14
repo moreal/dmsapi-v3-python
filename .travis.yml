@@ -1,10 +1,18 @@
 language: python
+
 python:
-  - "3.7-dev"
+  - 3.7-dev
 
 install:
   - pip install pipenv
   - pipenv install
-
 script:
   - pipenv run -- py.test
+
+deploy:
+  provider: pypi
+  user: moreal
+  password:
+    secure: i6FfD0E/0gkbybzHBr3Bftm8qFRUHcUQJZvUiil4M0E2hsSQ6CiCkS/bdhyVjo1FpQSGfU3z4rjLwdL9rfbWeOKrQGX8z4A3bAtKEd2g+b+uQgKaJKd8jbmpJCnv4VmxjhXSkI4IXD5YhPhNvQ9Xew8LKSHIlWp0kTW/6QG5RvKqxZWEdqN9KbcNzyJGROn+o+VTp5jXxCdSoIh0hoZofwFvHNo+CDp90H+LmV7mY3gHpHfCV8E0uVbNk3fwIDA/QT0GUvRINmrNsNpNtk/8GS9M7/4Uv2eUDkNT35Kmly4G4HvwMuKuCWpCm1hqm5TtqlBjHhpgFz7CagES5F8LSeRm+kUTxlh/S1VhDO5M4s8KQSxhnbruMdVmzTiVtmzpmYpvlbG2tLyqWtRLuVdOj7+l9829RQmPJjL08O4nVUoTtRetuAZFdgHp7Vifq0gVcSlmFDASn13Egp4evrEhjM5F52TkUKlLfc1cb6XCgzURd0mzR47KN3u1mvvAlHIJs1m65eskuS+ypkxX0Hx7cnmWovKNNlP0IWzGlNTOtOst3Qorvep2vj7/DE4wJxJcRXyWIaEvbqslHueUoJtMm3enVeXefEXOdIEqUcnsSwF5r06kpUi/YW4gKr0SMIqXOBi1aB7tT3TghvaurldkYZ8UzKc8ctfhFpT2xsahsr8=
+  on:
+    tags: true
