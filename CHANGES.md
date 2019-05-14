@@ -1,5 +1,12 @@
 # DMS-API changelog
 
+## Unreleased
+
+- Support direct import
+  ```python
+  from dmsapi import DMSSession
+  ```
+
 ## Version 0.1.1
 - Refactor config structure
 
