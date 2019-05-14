@@ -1,3 +1,4 @@
+from http import HTTPStatus
 from json import JSONDecodeError
 
 from dmsapi import config
@@ -13,13 +14,13 @@ class Extension(BaseAPI):
 
     @require_auth
     def apply(self, _time: int, _class: int, _seat: int) -> bool:
-        return self.session.post(
+        return (HTTPStatus.CREATED, HTTPStatus.RESET_CONTENT) in self.session.post(
             f"{config.entrypoints['EXTENSION']}/{_time}",
             json={
                 'classNum': _class,
                 'seatNum': _seat
             }
-        ).status_code == 200
+        ).status_code
 
     def map(self, _time: int, _room: int):
         return self.session.get(
