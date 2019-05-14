@@ -4,7 +4,7 @@ from setuptools import setup
 setup(
     url='https://github.com/dmsapi/python',
     name='dmsapi',
-    version='0.1.0',
+    version='0.1.1',
     long_description='DMS API :)',
     description='Simple DSM-DMS API',
     author='moreal',
