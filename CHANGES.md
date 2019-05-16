@@ -1,6 +1,6 @@
 # DMS-API changelog
 
-## Unreleased
+## Version 0.2.0
 
 - Support Goingout, Info API
 - Add cancel method in Extension API
