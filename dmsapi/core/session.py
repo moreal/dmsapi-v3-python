@@ -3,9 +3,9 @@ from requests import Session, Response
 from dmsapi import config
 from dmsapi.api.extension import Extension
 from dmsapi.api.goingout import Goingout
+from dmsapi.api.info import Info
 from dmsapi.api.meal import Meal
 from dmsapi.api.music import Music
-from dmsapi.api.point import Point
 from dmsapi.api.stay import Stay
 from dmsapi.core.requests import api_call_auth
 
@@ -55,8 +55,8 @@ class DMSSession(Session):
         return Goingout(self)
 
     @property
-    def point(self) -> Point:
-        return Point(self)
+    def info(self) -> Info:
+        return Info(self)
 
     @property
     def meal(self) -> Meal:
