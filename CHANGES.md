@@ -1,5 +1,10 @@
 # DMS-API changelog
 
+## Unreleased
+
+- Support Goingout API
+- Drop the automation pypi deploy
+
 ## Version 0.1.3
 
 - Automation pypi version by git tag

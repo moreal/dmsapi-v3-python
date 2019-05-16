@@ -9,7 +9,7 @@ with open('README.md') as f:
 setup(
     url='https://github.com/dmsapi/python',
     name='dmsapi',
-    version=os.environ['TRAVIS_TAG'],
+    version="0.1.4",
     long_description=readme,
     long_description_content_type='text/markdown',
     description='Simple DSM-DMS API',
