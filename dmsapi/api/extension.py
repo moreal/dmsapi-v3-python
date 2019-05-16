@@ -1,5 +1,4 @@
 from http import HTTPStatus
-from json import JSONDecodeError
 
 from dmsapi import config
 from dmsapi.api.base import BaseAPI, require_auth
@@ -21,6 +20,12 @@ class Extension(BaseAPI):
                 'seatNum': _seat
             }
         ).status_code
+
+    @require_auth
+    def cancel(self, _time: int) -> bool:
+        return self.session.delete(
+            f"{config.entrypoints['EXTENSION']}/{_time}"
+        )
 
     def map(self, _time: int, _room: int):
         return self.session.get(

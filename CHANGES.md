@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Support Goingout, Info API
+- Add cancel method in Extension API
 - Drop the automation pypi deploy
 
 ## Version 0.1.3
