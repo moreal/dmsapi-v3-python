@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Support Goingout API
+- Support Goingout, Info API
 - Drop the automation pypi deploy
 
 ## Version 0.1.3
