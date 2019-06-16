@@ -1,5 +1,9 @@
 # DMS-API changelog
 
+## To be release
+
+- Change return value of Extension#apply [c948eae]
+
 ## Version 0.2.2
 
 - Add timezone option for cloud runtime environment [81238d0]
