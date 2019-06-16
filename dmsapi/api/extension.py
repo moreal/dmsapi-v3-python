@@ -19,7 +19,7 @@ class Extension(BaseAPI):
                 'classNum': _class,
                 'seatNum': _seat
             }
-        ).status_code in (HTTPStatus.CREATED, HTTPStatus.RESET_CONTENT)
+        ).status_code == HTTPStatus.CREATED
 
     @require_auth
     def cancel(self, _time: int) -> bool:
