@@ -13,13 +13,13 @@ class Extension(BaseAPI):
 
     @require_auth
     def apply(self, _time: int, _class: int, _seat: int) -> bool:
-        return (HTTPStatus.CREATED, HTTPStatus.RESET_CONTENT) in self.session.post(
+        return self.session.post(
             f"{config.entrypoints['EXTENSION']}/{_time}",
             json={
                 'classNum': _class,
                 'seatNum': _seat
             }
-        ).status_code
+        ).status_code in (HTTPStatus.CREATED, HTTPStatus.RESET_CONTENT)
 
     @require_auth
     def cancel(self, _time: int) -> bool:
