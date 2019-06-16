@@ -1,6 +1,10 @@
-from dmsapi import config
-from dmsapi.core import requests
+import requests
+
+from dmsapi import config, DMSSession
 from requests import Request
+
+from dmsapi.core import auth
+from dmsapi.core.auth import ApiCallAuth
 from dmsapi.utils.auth import make_user_data
 
 ROOT_PATH = config.entrypoints['ROOT']
@@ -21,6 +25,7 @@ def dms_check_user_data_process(request: Request, context):
 
 def test_request_with_auth(requests_mock):
     requests_mock.get(ROOT_PATH, text=dms_check_user_data_process)
-    resp = requests.get(ROOT_PATH)
+    session = DMSSession()
+    resp = session.get(ROOT_PATH)
 
     assert 418 != resp.status_code
