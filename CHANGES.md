@@ -1,5 +1,10 @@
 # DMS-API changelog
 
+## Version 0.2.2
+
+- Add timezone option for cloud runtime environment [81238d0]
+- Remove useless `dmsapi.core.requests` [bd8b93f]
+
 ## Version 0.2.1
 
 - Fix error in Extension#apply [a379f37]
