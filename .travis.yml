@@ -5,9 +5,13 @@ python:
 
 install:
   - pip install pipenv
-  - pipenv install
+  - pipenv install --dev
+
 script:
-  - pipenv run -- py.test
+  - py.test --cov-report term --cov dmsapi tests
+
+after_success:
+  - codecov
 
 deploy:
   provider: pypi
