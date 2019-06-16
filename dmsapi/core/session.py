@@ -1,3 +1,5 @@
+import datetime
+
 from requests import Session, Response
 
 from dmsapi import config
@@ -7,12 +9,18 @@ from dmsapi.api.info import Info
 from dmsapi.api.meal import Meal
 from dmsapi.api.music import Music
 from dmsapi.api.stay import Stay
-from dmsapi.core.requests import api_call_auth
+
+from dmsapi.core.auth import ApiCallAuth
 
 
 class DMSSession(Session):
-    def __init__(self, _id=None, _password=None):
+    def __init__(self, _id=None, _password=None, _timezone: datetime.timezone = None):
         super().__init__()
+
+        if _timezone is None:
+            _timezone = datetime.timezone(datetime.timedelta(hours=9))
+
+        self._api_call_auth_instance = ApiCallAuth(_timezone)
 
         self._id = _id
         self._password = _password
@@ -44,7 +52,11 @@ class DMSSession(Session):
                 'Authorization': 'Bearer ' + self.access_token
             })
 
-        return super().request(method, url, auth=api_call_auth, **kwargs)
+        return super().request(
+            method,
+            url,
+            auth=self._api_call_auth_instance,
+            **kwargs)
 
     @property
     def extension(self) -> Extension:
