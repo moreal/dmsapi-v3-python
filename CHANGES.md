@@ -1,5 +1,9 @@
 # DMS-API changelog
 
+## Version 0.2.1
+
+- Fix error in Extension#apply [a379f37]
+
 ## Version 0.2.0
 
 - Support Goingout, Info API
